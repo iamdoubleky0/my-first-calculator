@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>General Weighted Average Calculator</title>
+	<style>
+		body {
+			font-family: Georgia, sans-serif;
+			background-color: #f2f2f2;
+		}
+		
+		.container {
+			width: 80%;
+			margin: 0 auto;
+			margin-top: 150px;
+			padding: 40px;
+			background-color: #fff;
+			box-shadow: 0px 0px 5px #ccc;
+			border-radius: 5px;
+			text-align: center;
+		}
+		
+		input[type="number"] {
+			padding: 5px;
+			margin: 10px;
+			border-radius: 5px;
+			border: none;
+			box-shadow: 0px 0px 5px #ccc;
+		}
+		
+		button {
+			padding: 10px 20px;
+			background-color: #808080;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 0px 0px 5px #ccc;
+			cursor: pointer;
+		}
+		
+		h1 {
+			margin-top: 0;
+			color: #333;
+		}
+		
+		.result {
+			font-size: 24px;
+			font-weight: bold;
+			margin-top: 20px;
+			color: #333;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1>General Weighted Average Calculator</h1>
+		<p>Enter the grades for each subject:</p>
+		<input type="number" id="his" placeholder="History">
+		<input type="number" id="sci" placeholder="Science">
+		<input type="number" id="eng" placeholder="English">
+		<input type="number" id="math" placeholder="Mathematics">
+		<input type="number" id="am" placeholder="Art and Music">
+		<input type="number" id="lit" placeholder="Literature">
+		<input type="number" id="pe" placeholder="Physical Education">
+		<button onclick="calculate()">Calculate</button>
+		<div class="result" id="result"></div>
+	</div>
+
+	<script>
+		function calculate() {
+    var his = Number(document.getElementById('his').value);
+    var sci = Number(document.getElementById('sci').value);
+    var eng = Number(document.getElementById('eng').value);
+    var math = Number(document.getElementById('math').value);
+    var am = Number(document.getElementById('am').value);
+    var lit = Number(document.getElementById('lit').value);
+    var pe = Number(document.getElementById('pe').value);
+
+    var total = his + sci + eng + math + am + lit + pe;
+    var genAverage = total / 7;
+
+    var remarks = "";
+    if (genAverage < 75) {
+        remarks = "DID NOT MEET EXPECTATIONS: FAILED";
+    } else if (genAverage >= 75 && genAverage <= 79) {
+        remarks = "FAIRLY SATISFACTORY: PASSED";
+    } else if (genAverage >= 80 && genAverage <= 84) {
+        remarks = "SATISFACTORY: PASSED ";
+    } else if (genAverage >= 85 && genAverage <= 89) {
+        remarks = "VERY SATISFACTORY: PASSED";
+    } else if (genAverage >= 90 && genAverage <= 100) {
+        remarks = "OUTSTANDING: PASSED";
+    } else {
+        remarks = "DOES NOT EXIST";
+    }
+
+    document.getElementById('result').innerHTML = "GWA: " + genAverage + "<br>" + remarks;
+}
+  </script> 
+</body>
+</html>
